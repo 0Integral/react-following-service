@@ -7,11 +7,6 @@ export const App = () => {
   const [userStatistics, setUserStatistic] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-
-  useEffect(() => {
-    getFunc();
-  }, []);
-
   const getFunc = async () => {
     setLoading(true);
     try {
@@ -20,10 +15,14 @@ export const App = () => {
       setUserStatistic(data);
     } catch (er) {
       setError(er);
+      console.log(error);
     } finally {
       setLoading(false);
     }
   };
+  useEffect(() => {
+    getFunc();
+  }, []);
 
   return (
     <div>

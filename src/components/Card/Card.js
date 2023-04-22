@@ -8,8 +8,8 @@ import {
   Tweets,
   FollowBtn,
 } from './Card.styled';
-import logo from '../public/img/logo.png';
-import decorImg from '../public/img/decor.png';
+import logo from '../../img/logo.png';
+import decorImg from '../../img/decor.png';
 import { useState } from 'react';
 
 export const Card = ({ userInfo }) => {
