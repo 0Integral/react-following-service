@@ -1,6 +1,7 @@
 import { getUsersBase } from 'services/UserServices';
 import { Card } from './Card/Card';
 import { useEffect, useState } from 'react';
+import { TweetsList } from './App.styled';
 
 export const App = () => {
   const [userStatistics, setUserStatistic] = useState([]);
@@ -17,8 +18,9 @@ export const App = () => {
       const data = await getUsersBase();
 
       setUserStatistic(data);
-    } catch (error) {
-      setError(error);
+    } catch (er) {
+      setError(er);
+      console.log(error);
     } finally {
       setLoading(false);
     }
@@ -27,15 +29,15 @@ export const App = () => {
   return (
     <div>
       {loading && <div>Await plz</div>}
-      {userStatistics.map(user => {
-        return (
-          <li key={user.id}>
-            <Card userInfo={user} />
-          </li>
-        );
-      })}
-
-      <button onClick={getUsersBase}>click</button>
+      <TweetsList>
+        {userStatistics.map(user => {
+          return (
+            <li key={user.id}>
+              <Card userInfo={user} />
+            </li>
+          );
+        })}
+      </TweetsList>
     </div>
   );
 };
