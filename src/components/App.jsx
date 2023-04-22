@@ -20,7 +20,6 @@ export const App = () => {
       setUserStatistic(data);
     } catch (er) {
       setError(er);
-      console.log(error);
     } finally {
       setLoading(false);
     }
