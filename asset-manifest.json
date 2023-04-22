@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/react-following-service/static/css/main.57119a2d.css",
+    "main.js": "/react-following-service/static/js/main.35ccd9ed.js",
+    "static/media/decor.png": "/react-following-service/static/media/decor.b3d9942b3f9d5dad1ff0.png",
+    "index.html": "/react-following-service/index.html",
+    "main.57119a2d.css.map": "/react-following-service/static/css/main.57119a2d.css.map",
+    "main.35ccd9ed.js.map": "/react-following-service/static/js/main.35ccd9ed.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.57119a2d.css",
+    "static/js/main.35ccd9ed.js"
+  ]
+}
