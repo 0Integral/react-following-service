@@ -5,23 +5,23 @@ import { TweetsList } from './App.styled';
 
 export const App = () => {
   const [userStatistics, setUserStatistic] = useState([]);
-  // const [loading, setLoading] = useState(false);
-  // const [error, setError] = useState(null);
-  // const getFunc = async () => {
-  //   setLoading(true);
-  //   try {
-  //     const data = await getUsersBase();
+  const [isLoading, setIsloading] = useState(false);
+  // const [loadMore, setLoadMore] = useState(false);
+  const [error, setError] = useState(null);
+  // const [page, setPage] = useState(2);
 
-  //     setUserStatistic(data);
-  //   } catch (er) {
-  //     setError(er);
-  //     console.log(error);
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
   useEffect(() => {
-    getUsersBase().then(results => setUserStatistic([...results]));
+    (async () => {
+      try {
+        setIsloading(true);
+        const res = await getUsersBase();
+        setUserStatistic(res);
+      } catch (e) {
+        setError(e.message);
+      } finally {
+        setIsloading(false);
+      }
+    })();
   }, []);
 
   return (
