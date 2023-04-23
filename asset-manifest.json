@@ -1,14 +1,22 @@
 {
   "files": {
     "main.css": "/react-following-service/static/css/main.57119a2d.css",
-    "main.js": "/react-following-service/static/js/main.145644c8.js",
+    "main.js": "/react-following-service/static/js/main.164f32a4.js",
+    "static/js/350.19389398.chunk.js": "/react-following-service/static/js/350.19389398.chunk.js",
+    "static/js/225.5f92bfc0.chunk.js": "/react-following-service/static/js/225.5f92bfc0.chunk.js",
+    "static/js/730.4cae9174.chunk.js": "/react-following-service/static/js/730.4cae9174.chunk.js",
+    "static/media/welcome.png": "/react-following-service/static/media/welcome.5a3706f14c2a2b5285d9.png",
     "static/media/decor.png": "/react-following-service/static/media/decor.b3d9942b3f9d5dad1ff0.png",
+    "static/media/Avatar.png": "/react-following-service/static/media/Avatar.9628b215ff8b0d11a1c7.png",
     "index.html": "/react-following-service/index.html",
     "main.57119a2d.css.map": "/react-following-service/static/css/main.57119a2d.css.map",
-    "main.145644c8.js.map": "/react-following-service/static/js/main.145644c8.js.map"
+    "main.164f32a4.js.map": "/react-following-service/static/js/main.164f32a4.js.map",
+    "350.19389398.chunk.js.map": "/react-following-service/static/js/350.19389398.chunk.js.map",
+    "225.5f92bfc0.chunk.js.map": "/react-following-service/static/js/225.5f92bfc0.chunk.js.map",
+    "730.4cae9174.chunk.js.map": "/react-following-service/static/js/730.4cae9174.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.57119a2d.css",
-    "static/js/main.145644c8.js"
+    "static/js/main.164f32a4.js"
   ]
 }
