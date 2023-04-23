@@ -44,8 +44,6 @@ const Tweets = () => {
         const res = await getUsersBase();
         const resForDisplay = await getMoreUsersInfo();
         setUserStatistic(res);
-        setMaxPages(Math.round(res.length / 6));
-
         setDisplayUsers(resForDisplay);
       } catch (e) {
         setError(e.message);
@@ -54,6 +52,10 @@ const Tweets = () => {
       }
     })();
   }, []);
+
+  useEffect(() => {
+    setMaxPages(Math.round(userStatistics.length / 6));
+  }, [userStatistics]);
 
   useEffect(() => {
     page > maxPages ? setLoadMore(false) : setLoadMore(true);
@@ -78,10 +80,10 @@ const Tweets = () => {
             </li>
           );
         })}
-        {loadMore && (
-          <LoadMoreBtn onClick={handleLoadMore}>Load more</LoadMoreBtn>
-        )}
       </TweetsList>
+      {loadMore && (
+        <LoadMoreBtn onClick={handleLoadMore}>Load more</LoadMoreBtn>
+      )}
     </div>
   );
 };
