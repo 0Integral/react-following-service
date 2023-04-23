@@ -1,41 +1,18 @@
-import { getUsersBase } from 'services/UserServices';
-import { Card } from './Card/Card';
-import { useEffect, useState } from 'react';
-import { TweetsList } from './App.styled';
+import { lazy } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { Layout } from './Layout/Layout';
+
+const HomePage = lazy(() => import('../pages/Home'));
+const TweetsPage = lazy(() => import('../pages/Tweets'));
 
 export const App = () => {
-  const [userStatistics, setUserStatistic] = useState([]);
-  // const [isLoading, setIsloading] = useState(false);
-  // const [loadMore, setLoadMore] = useState(false);
-  // const [error, setError] = useState(null);
-  // const [page, setPage] = useState(2);
-
-  useEffect(() => {
-    (async () => {
-      try {
-        // setIsloading(true);
-        const res = await getUsersBase();
-        setUserStatistic(res);
-      } catch (e) {
-        // setError(e.message);
-      } finally {
-        // setIsloading(false);
-      }
-    })();
-  }, []);
-
   return (
-    <div>
-      {/* {loading && <div>Await plz</div>} */}
-      <TweetsList>
-        {userStatistics.map(user => {
-          return (
-            <li key={user.id}>
-              <Card userInfo={user} />
-            </li>
-          );
-        })}
-      </TweetsList>
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path="tweets" element={<TweetsPage />} />
+        <Route path="*" element={<HomePage />} />
+      </Route>
+    </Routes>
   );
 };

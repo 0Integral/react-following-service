@@ -10,18 +10,13 @@ import {
 } from './Card.styled';
 import logo from '../../img/logo.png';
 import decorImg from '../../img/decor.png';
-import { useState } from 'react';
 
-export const Card = ({ userInfo }) => {
-  const [following, setfollowing] = useState(false);
+export const Card = ({ userInfo, onFollow, following }) => {
+  const { id, tweets, followers, avatar } = userInfo;
+  const followNow = following(id);
 
-  const { tweets, followers, avatar } = userInfo;
-  const onClickFollow = () => {
-    console.log(following);
-    setfollowing(!following);
-    console.log(following);
-  };
   const converNumber = number => new Intl.NumberFormat('ja-JP').format(number);
+
   return (
     <TweetsListItem>
       <DecorCardPart>
@@ -31,12 +26,16 @@ export const Card = ({ userInfo }) => {
       <InfoCardPart>
         <Avatar src={avatar} alt="Avatar" />
         <Tweets>{tweets} TWEETS</Tweets>
-        <Followers>{converNumber(followers)} FOLLOWERS</Followers>
+        <Followers>
+          {followNow ? converNumber(followers + 1) : converNumber(followers)}{' '}
+          FOLLOWERS
+        </Followers>
         <FollowBtn
-          following={following ? 'following' : ''}
-          onClick={() => onClickFollow()}
+          id={id}
+          following={followNow ? 'following' : ''}
+          onClick={onFollow}
         >
-          {following ? 'following' : 'FOLLOW'}
+          {followNow ? 'following' : 'follow'}
         </FollowBtn>
       </InfoCardPart>
     </TweetsListItem>
