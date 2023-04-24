@@ -8,7 +8,7 @@ export const Header = styled.header`
   position: fixed;
   width: 100%;
   z-index: 100;
-  background-color: #e9f0f5;
+  background-color: #4e2faa;
 `;
 
 export const Container = styled.div`
@@ -32,13 +32,13 @@ export const NavItem = styled.ul`
 
 export const StyledLink = styled(NavLink)`
   padding: 10px;
-  color: rgb(142 142 142);
+  color: #fff;
   padding: 10px;
   font-weight: 600;
 
   &.active {
-    color: #04a0e0;
-    border: 1px solid #04a0e0;
+    color: #54ffd7;
+    border: 1px solid #54ffd7;
     border-radius: 4px;
     font-weight: 500;
     text-decoration: none;

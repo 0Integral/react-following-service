@@ -11,3 +11,8 @@ export async function getMoreUsersInfo(page = 1) {
   const res = await axios.get(`/users?page=${page}&limit=6`);
   return res.data;
 }
+
+export const updateUser = async ({ id, body }) => {
+  const res = await axios.put(`/users/${id}`, body);
+  return res.data;
+};

@@ -1,14 +1,10 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-export const TweetsList = styled.ul`
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: auto;
-  list-style: none;
+export const TweetsContainer = styled.div`
   max-width: 1200px;
+  padding: 0 40px;
+  margin: 0 auto;
 `;
 
 export const LoadMoreBtn = styled.button`
