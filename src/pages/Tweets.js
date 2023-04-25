@@ -13,7 +13,9 @@ const Tweets = () => {
   const [isLoading, setIsloading] = useState(false);
   const [error, setError] = useState(null);
   const [allUsers, setallUsers] = useState([]);
+
   const [filterUsers, setfilterUsers] = useState([]);
+  const [filter, setFilter] = useState(false);
 
   const [follow, setfollow] = useLocalStorage('follow');
   const [filterValue, setFilterValue] = useState('all');
@@ -69,28 +71,25 @@ const Tweets = () => {
   }, [userStatistics]);
 
   useEffect(() => {
-    page > maxPages ? setLoadMore(false) : setLoadMore(true);
-  }, [page, maxPages]);
-
-  useEffect(() => {
     switch (filterValue) {
       case 'follow':
+        setLoadMore(false);
         setfilterUsers(
           userStatistics.filter(user => !follow.includes(user.id))
         );
-        setLoadMore(false);
-
+        setFilter(true);
         break;
       case 'following':
-        setfilterUsers(userStatistics.filter(user => follow.includes(user.id)));
         setLoadMore(false);
-
+        setfilterUsers(userStatistics.filter(user => follow.includes(user.id)));
+        setFilter(true);
         break;
       default:
         setfilterUsers([]);
-        setLoadMore(true);
+        page > maxPages ? setLoadMore(false) : setLoadMore(true);
+        setFilter(false);
     }
-  }, [filterValue, follow, userStatistics]);
+  }, [filterValue, follow, userStatistics, page, maxPages]);
 
   return isLoading ? (
     <Spinner />
@@ -101,7 +100,7 @@ const Tweets = () => {
       <StyledLinkBack to="/">Back</StyledLinkBack>
       <Select handleSelectChange={handleSelectChange} />
       <TweetsList
-        users={!filterUsers.length ? allUsers : filterUsers}
+        users={filter ? filterUsers : allUsers}
         onFollow={onFollow}
         following={getInfoAboutFollowing}
       />
