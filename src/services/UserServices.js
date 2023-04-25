@@ -11,8 +11,3 @@ export async function getMoreUsersInfo(page = 1) {
   const res = await axios.get(`/users?page=${page}&limit=6`);
   return res.data;
 }
-
-export const updateUser = async ({ id }) => {
-  const res = await axios.put(`/users/${id}`, { followers: 100500 });
-  return res.data;
-};
