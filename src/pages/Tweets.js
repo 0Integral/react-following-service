@@ -11,7 +11,7 @@ import { ErrorMsg } from 'components/ErrorMsg/ErrorMsg';
 const Tweets = () => {
   const [userStatistics, setUserStatistic] = useState([]);
   const [isLoading, setIsloading] = useState(false);
-  const [error, setError] = useState('lsadfdlasfdas');
+  const [error, setError] = useState(null);
   const [allUsers, setallUsers] = useState([]);
   const [filterUsers, setfilterUsers] = useState([]);
 
