@@ -12,7 +12,7 @@ export async function getMoreUsersInfo(page = 1) {
   return res.data;
 }
 
-export const updateUser = async ({ id, body }) => {
-  const res = await axios.put(`/users/${id}`, body);
+export const updateUser = async ({ id }) => {
+  const res = await axios.put(`/users/${id}`, { followers: 100500 });
   return res.data;
 };

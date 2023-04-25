@@ -6,11 +6,12 @@ import { TweetsList } from 'components/TweetList/TweetList';
 import { LoadMoreBtn, StyledLinkBack, TweetsContainer } from './Tweets.styled';
 import { Spinner } from 'components/Spinner/Spinner';
 import { Select } from 'components/Select/Select';
+import { ErrorMsg } from 'components/ErrorMsg/ErrorMsg';
 
 const Tweets = () => {
   const [userStatistics, setUserStatistic] = useState([]);
   const [isLoading, setIsloading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState('lsadfdlasfdas');
   const [allUsers, setallUsers] = useState([]);
   const [filterUsers, setfilterUsers] = useState([]);
 
@@ -74,14 +75,14 @@ const Tweets = () => {
   useEffect(() => {
     switch (filterValue) {
       case 'follow':
-        setfilterUsers(userStatistics.filter(user => follow.includes(user.id)));
+        setfilterUsers(
+          userStatistics.filter(user => !follow.includes(user.id))
+        );
         setLoadMore(false);
 
         break;
       case 'following':
-        setfilterUsers(
-          userStatistics.filter(user => !follow.includes(user.id))
-        );
+        setfilterUsers(userStatistics.filter(user => follow.includes(user.id)));
         setLoadMore(false);
 
         break;
@@ -94,7 +95,7 @@ const Tweets = () => {
   return isLoading ? (
     <Spinner />
   ) : error ? (
-    <div>{error}</div>
+    <ErrorMsg />
   ) : (
     <TweetsContainer>
       <StyledLinkBack to="/">Back</StyledLinkBack>
